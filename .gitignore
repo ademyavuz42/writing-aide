@@ -1,0 +1,33 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+package-lock.json
+
+# Playwright test results and cache
+playwright-report/
+test-results/
+trace.zip
+
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# Logs and temp files
+logs/
+*.log
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Example tests
+example.spec.js
+demo-todo-app.spec.js
