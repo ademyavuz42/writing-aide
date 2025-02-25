@@ -15,7 +15,13 @@ class HomePage {
         this.writingTipsLink = this.navBar.getByRole('link', {name: 'Writing Tips'})
         this.mainSection = this.page.locator('main')
         this.video = this.mainSection.getByRole('img', {name: 'Video Thumbnail'})
-
+        this.leftPanel = this.page.locator('#home-Jumbotron-LeftPanel-Desktop.mantine-visible-from-md')
+        this.testTakersMain = this.leftPanel.getByRole('link', {name: 'Test Takers'})
+        this.teachersMain = this.leftPanel.getByRole('link', {name: 'Teachers'})
+        this.organizationMain = this.leftPanel.getByRole('link', {name: 'Organization'})
+        this.titlePage = this.mainSection.getByRole('heading', { name: 'Writing Companion' })
+        this.videoPlayButton = this.page.locator('#home-Jumbotron-toggle-PlayVideo')
+        this.videoSlider = this.page.locator('#home-Jumbotron-SliderVideo input')
     }
 
     async navigate() {
@@ -36,6 +42,14 @@ class HomePage {
 
     async clickElement(element){
         await element.click()
+    }
+
+    async getInnerText(element) {
+        return await element.innerText()
+    }
+
+    async getElementByRole(role, name){
+        return await this.page.getByRole(role, {name: name})
     }
 }
 
