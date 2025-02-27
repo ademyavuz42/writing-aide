@@ -31,3 +31,6 @@ Thumbs.db
 # Example tests
 example.spec.js
 demo-todo-app.spec.js
+
+# Snapshots
+*-Snapshots
