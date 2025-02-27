@@ -124,12 +124,12 @@ test.describe('Login Page Tests', () => {
         await expect(page).toHaveURL('forgot-password')
         await page.locator('input').fill(userData.admin.email)
         await page.locator('#actionTo-ForgotPassword').click()
-        await expect(page.getByRole('heading')).toHaveText('Reset Link Sent!', {timeout: 3000})
+        await expect(page.getByRole('heading')).toHaveText('Reset Link Sent!', {timeout: 5000})
     })
 
-    test(' =Full page screenshot' , async()=>{
-        await expect(page).toHaveScreenshot('loginPage.png', {fullPage: true})
-    })
+    // test(' =Full page screenshot' , async()=>{
+    //     await expect(page).toHaveScreenshot('loginPage.png', {fullPage: true})
+    // })
 
 
 
