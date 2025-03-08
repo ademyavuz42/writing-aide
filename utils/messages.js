@@ -6,7 +6,6 @@ const messages = {
     },
     password: {
         missingPassword: 'Please fill out this field.',
-        shortPassword: 'Password must be at least 6 characters long.',
         incorrectPassword: 'Invalid email or password'
     },
     login: {
