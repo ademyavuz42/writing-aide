@@ -2,8 +2,6 @@ const {test, expect, chromium} = require('@playwright/test');
 const LoginPage = require('../pages/LoginPage');
 const messages = require('../utils/messages');
 const userData = require('../utils/userData');
-const exp = require('constants');
-const path = require('path');
 
 test.describe('Login Page Tests', () => {
     let browser, page, loginPage;
@@ -22,6 +20,7 @@ test.describe('Login Page Tests', () => {
     test.afterAll(async()=>{
         await browser.close();
     })
+    
     test('Verify title and URL of Login page', async()=>{
         await expect(page).toHaveURL('/login');
         await expect(page).toHaveTitle('Sign In - Writing-Aide');
@@ -92,18 +91,18 @@ test.describe('Login Page Tests', () => {
     })
 
     test('Verify the visibility of the copyright on the login page', async()=>{
-        await expect(loginPage.copyright).toBeVisible()
+        await expect(loginPage.footer.copyright).toBeVisible()
     })
 
     test('Verify the functionality of the Terms-and-Condition link', async()=>{
-        await expect(loginPage.termsLink).toBeVisible()
-        await loginPage.clickElement(loginPage.termsLink);
+        await expect(loginPage.footer.termsLink).toBeVisible()
+        await loginPage.clickElement(loginPage.footer.termsLink);
         await expect(page).toHaveURL('/terms-of-use')
     })
 
     test('Verify the functionality of the Privacy-Policy link', async()=>{
-        await expect(loginPage.privacyLink).toBeVisible()
-        await loginPage.clickElement(loginPage.privacyLink);
+        await expect(loginPage.footer.privacyLink).toBeVisible()
+        await loginPage.clickElement(loginPage.footer.privacyLink);
         await expect(page).toHaveURL('/privacy')
     })
 
