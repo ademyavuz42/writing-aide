@@ -119,8 +119,8 @@ test.describe('Student Dashboard Page Tests', () => {
 
     test('Verify the visibility of taken test titles', async()=>{
         await page.waitForSelector('div.mantine-Badge-root > span.mantine-Badge-label', { timeout: 5000 });
-        await page.screenshot({ path: 'debug.png', fullPage: true });
-        await expect(page).toHaveScreenshot('debug.png', { fullPage: true });
+        // await page.screenshot({ path: 'debug.png', fullPage: true });
+        // await expect(page).toHaveScreenshot('debug.png', { fullPage: true });
         const titles = await student.getTestTitlesText();
         console.log('Test titles: ', titles);
         expect(titles.length).toBeGreaterThan(0);
