@@ -7,10 +7,7 @@ class LoginPage {
         this.signInButton = page.getByRole('button', { name: 'Sign In' });
         this.rememberMeCheckbox = page.getByRole('checkbox', { name: 'Remember me' });
         this.errorMessage = page.locator('p.text-md');
-        this.socialLoginButton = page.locator('#actionTo-SocialiteLogin')
-        // this.copyright = page.locator('footer p')
-        // this.termsLink = page.locator('#navigationFooter-TermsAndConditions')
-        // this.privacyLink = page.locator('#navigationFooter-Privacy')
+        this.socialLoginButton = page.locator('#actionTo-SocialiteLogin');
         this.rememberMeCheckbox = page.getByLabel('Remember me')
         this.forgotPasswordLink = page.locator('#navigationMain-ForgotPassword')
         this.footer = {
