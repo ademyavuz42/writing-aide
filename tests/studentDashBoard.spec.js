@@ -7,7 +7,7 @@ test.describe('Student Dashboard Page Tests', () => {
     let browser, context, page, student;
 
     test.beforeAll(async () => {
-        browser = await chromium.launch({ headless: true });
+        browser = await chromium.launch();
     });
 
     test.beforeEach(async () => {
