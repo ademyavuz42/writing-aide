@@ -6,7 +6,7 @@ test.describe('Teacher Dashboard Page Tests', () => {
     let browser, context, page, teacher;
 
     test.beforeAll(async () => {
-        browser = await chromium.launch({ headless: false });
+        browser = await chromium.launch();
     })
 
     test.beforeEach(async () => {
