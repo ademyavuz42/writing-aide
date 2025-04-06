@@ -8,7 +8,6 @@ class StudentDashboard extends LoginPage{
         this.writingLink = page.getByRole('link', { name: 'Writings' });
         this.ordersLink = page.getByRole('link', { name: 'Orders' });
         this.creditLink = page.getByRole('link', { name: 'Credits' });
-        this.role = page.getByRole('button', { name: 'PERSONAL' });
         this.creditAmount = page.locator('header .mantine-focus-auto.m_b6d8b162.mantine-Text-root').nth(4);
         this.profile = page.getByRole('button', { name: 'Settings' });
         this.setting = page.getByRole('menuitem', { name: 'Settings' }); 
@@ -21,7 +20,6 @@ class StudentDashboard extends LoginPage{
         this.recentWriting = page.getByRole('heading', { name: 'Recent Writings' });
         this.rating = page.getByRole('button', { name: 'Rating & Review' });
         this.examTypeLocator = page.locator('div#writingTest > span.mantine-Badge-label');
-
     }
 
     async navigate() {

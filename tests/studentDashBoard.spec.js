@@ -1,8 +1,7 @@
 const { test, expect, chromium } = require('@playwright/test');
 const StudentDashboard = require('../pages/StudentDashboard');
 const userData = require('../utils/userData');
-const exp = require('constants');
-const { execPath } = require('process');
+
 
 test.describe('Student Dashboard Page Tests', () => {
     let browser, context, page, student;
