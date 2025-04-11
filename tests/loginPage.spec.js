@@ -123,6 +123,7 @@ test.describe('Login Page Tests', () => {
         await expect(page).toHaveURL('forgot-password')
         await page.locator('input').fill(userData.admin.email)
         await page.locator('#actionTo-ForgotPassword').click()
+        await page.waitForTimeout(2000)
         await expect(page.getByRole('heading')).toHaveText('Reset Link Sent!', {timeout: 5000})
     })
 

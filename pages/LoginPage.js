@@ -2,7 +2,7 @@ class LoginPage {
     constructor(page) {
         this.page = page;
         this.mainImage = page.locator('div.mantine-visible-from-md img');
-        this.emailInput = page.getByRole('textbox', { name: 'email' });
+        this.emailInput = page.locator('input#email');
         this.passwordInput = page.getByRole('textbox', { name: 'password' });
         this.signInButton = page.getByRole('button', { name: 'Sign In' });
         this.rememberMeCheckbox = page.getByRole('checkbox', { name: 'Remember me' });
