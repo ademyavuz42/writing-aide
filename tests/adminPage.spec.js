@@ -16,6 +16,8 @@ test.describe('Admin Page Tests', () => {
         await admin.navigate();
         admin.login(userData.admin.email, userData.admin.password);
         admin.changeRole('ADMIN');
+        await page.waitForLoadState('domcontentloaded');
+        await expect(page).toHaveURL('/organization');
     })
 
     test.afterEach(async () => {
@@ -29,7 +31,6 @@ test.describe('Admin Page Tests', () => {
 
     test('Verify title and URL of Admin page', async () => {
         await expect(page).toHaveTitle('My Organization - Writing-Aide');
-        await expect(page).toHaveURL('/organization');
     })
 
     test('Verify organization details', async () => {
