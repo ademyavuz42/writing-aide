@@ -1,7 +1,6 @@
 const {test, expect, chromium} = require('@playwright/test');
 const OrganizationClass = require('../pages/OrganizationClass');
 const userData = require('../utils/userData');
-const exp = require('constants');
 
 test.describe('Organization Credit Page Tests', () => {
     let browser, context, page, classPage;
