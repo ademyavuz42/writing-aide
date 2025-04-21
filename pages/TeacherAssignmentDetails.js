@@ -1,4 +1,3 @@
-const { expect } = require('@playwright/test');
 const TeacherAssignment = require('./TeacherAssignment');
 
 class TaecherAssignmentDetails extends TeacherAssignment{
