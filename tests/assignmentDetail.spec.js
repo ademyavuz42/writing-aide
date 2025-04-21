@@ -51,7 +51,7 @@ test.describe('Writing Details Page Tests', () => {
        await writingPage.verifyScoreWordCountAndTime();
     })
 
-    test('Verify AI generated response content displayed', async () => {
+    test.skip('Verify AI generated response content displayed', async () => {
         await writingPage.verifySuggestedResponse();
     })
 

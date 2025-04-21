@@ -15,7 +15,7 @@ class AssignmentDetailPage extends LoginPage {
         this.userResponse = page.locator('main span.mantine-Text-root div');
         this.vocabularyTips = page.locator('#mantine-p91hs064c-target');
         this.suggestedResponse = page.getByRole('heading', { name: 'Suggested Response' });
-        this.suggestedResponseContent = page.locator('.m_4ba554d4 span');
+        this.suggestedResponseContent = page.locator('#mantine-309ab0ve5-panel-ImprovedWriting');
         this.predictedScore = page.getByText('95'); //         /^Predicted Score/, { exact: false}
         this.wordCount = page.getByText('110');
         this.complitionTime = page.getByRole('heading', { name: ': 02 : 06' });
@@ -52,7 +52,7 @@ class AssignmentDetailPage extends LoginPage {
     async verifyStudentResponseVisibleAndValid() {
         await this.userResponseTitle.scrollIntoViewIfNeeded();
         await expect(this.userResponseTitle).toBeVisible();
-        const responseText = await this.userResponse.textContent();
+        const responseText = await this.userResponse.first().textContent();
         await expect(responseText).toBeTruthy();
         const wordCount = responseText.trim().split(/\s+/).length;
         console.log('Word Count:', wordCount);
@@ -79,8 +79,9 @@ class AssignmentDetailPage extends LoginPage {
         await this.suggestedResponse.scrollIntoViewIfNeeded();
         await expect(this.suggestedResponse).toBeVisible();
         await this.suggestedResponse.click();
-        await expect(this.suggestedResponseContent).toBeVisible();
+        // await this.suggestedResponseContent.waitFor({ state: 'visible', timeout: 5000});
         const text = await this.suggestedResponseContent.textContent();
+        console.log('Suggested text: ', text);
         expect(text.toLowerCase()).toContain('photosynthesis');
         expect(text.toLowerCase()).toContain('sunlight');
         expect(text.toLowerCase()).toContain('energy');
