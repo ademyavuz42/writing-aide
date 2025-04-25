@@ -1,7 +1,6 @@
 const {test, expect, chromium} = require('@playwright/test');
 const WritingPage = require('../pages/WritingPage');
 const userData = require('../utils/userData');
-const exp = require('constants');
 
 test.describe('Writing Page Tests', () => {
     let browser, context, page, writingPage;
