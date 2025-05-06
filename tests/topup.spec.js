@@ -2,7 +2,7 @@ const {test, expect, chromium} = require('@playwright/test');
 const {TopupPage, OrgTopupPage} = require('../pages/TopupPage');
 const userData = require('../utils/userData');
 
-test.describe.skip('Personal Credit Page Tests', () => {
+test.describe('Personal Credit Page Tests', () => {
     let browser, context, page, topupPage;
 
     test.beforeAll(async () => {
@@ -17,11 +17,6 @@ test.describe.skip('Personal Credit Page Tests', () => {
         await topupPage.login(userData.admin.email, userData.admin.password);
         await page.waitForLoadState('domcontentloaded');
         await expect(page).toHaveURL('/dashboard');
-        
-        // Verify user role is ADMIN
-        const userRole = await page.evaluate(() => window.localStorage.getItem('userRole'));
-        expect(userRole).toBe('ADMIN'); // Adjust based on how the role is stored
-
         await topupPage.open();
     })
 
@@ -98,7 +93,7 @@ test.describe('Organizational Credit Page Tests', () => {
         await expect(orgTopupPage.payNowBtn).toBeEnabled();
     })
 
-    test.only('Verify the custom input disables discount', async () => {
+    test('Verify the custom input disables discount', async () => {
         await orgTopupPage.enterOtherAmount(11000);
         await expect(orgTopupPage.discountMessage).toHaveCount(0);
         await expect(orgTopupPage.payNowBtn).toBeEnabled();

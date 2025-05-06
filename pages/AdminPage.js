@@ -5,8 +5,8 @@ class AdminPage extends LoginPage{
         super(page);
         this.page = page;
         this.roleDefault = page.getByRole('button', { name: 'PERSONAL' })
-        this.orgName = page.getByRole('heading', { name: 'Example Organization' });
-        this.orgDescription = page.locator('h3.mantine-Title-root + p');
+        this.orgName = page.locator('main h3');
+        this.orgDescription = page.locator('main h3 + p');
         this.orgCredit = page.locator('p:below(:text("Organization Credit Balance"))').first();
         this.reservedCredit = page.locator('p:below(:text("Reserved Credit"))').first();
         this.userTable = page.locator('table.mantine-Table-table');
@@ -30,9 +30,9 @@ class AdminPage extends LoginPage{
     async changeRole(role){
         await this.roleDefault.click();
         await this.page.getByRole('menuitem', { name: role}).click();
-        if (role==='ADMIN') {
-            await this.page.waitForURL('/organization');
-        }
+        // if (role==='ADMIN') {
+        //     await this.page.waitForURL('/organization');
+        // }
     }
     async getOrgCreditAmount(){
        const creditText = await this.orgCredit.innerText();

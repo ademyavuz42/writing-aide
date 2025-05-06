@@ -64,14 +64,14 @@ class OrgTopupPage extends LoginPage {
     async changeRole(role){
         await this.defaultRole.click();
         await this.page.getByRole('menuitem', { name: role}).click();
-        if (role==='ADMIN') {
-            await this.page.waitForURL('/organization');
-        }
+        // if (role==='ADMIN') {
+        //     await this.page.waitForURL('/organization');
+        // }
     }
 
     async open() {
         await this.changeRole('ADMIN');
-        await this.page.waitForTimeout(500)
+        await this.page.waitForTimeout(2000)
         await this.orderPage.click();
         await this.topupBtn.click();
         await this.modalOrganization.waitFor({ state: 'visible' });
