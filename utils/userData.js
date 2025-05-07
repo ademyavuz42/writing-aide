@@ -27,4 +27,7 @@ const userData = {
         incorrectPassword: 'WrongPass'
     }
 };
-module.exports = userData;
+const redeem = {
+    valid: 'TestPersonal'
+}
+module.exports = {userData, redeem};
