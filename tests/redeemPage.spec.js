@@ -1,6 +1,6 @@
 const {test, expect, chromium} = require('@playwright/test');
 const RedeemPage = require('../pages/RedeemPage');
-const {userData, redeem} = require('../utils/userData');
+const userData = require('../utils/userData');
  
 
 test.describe('Redeem Code Modal Tests', () => {
@@ -49,7 +49,7 @@ test.describe('Redeem Code Modal Tests', () => {
     })
 
     test('Verify success is shown for valid code', async () => {
-        await redeemModal.enterCode(redeem.valid);
+        await redeemModal.enterCode('TestPersonal');
         const isSuccessVisible = await redeemModal.isSuccessIconVisible();
         console.log(isSuccessVisible)
         expect(isSuccessVisible).toBe(true);
